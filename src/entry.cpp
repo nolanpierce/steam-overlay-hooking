@@ -5,8 +5,8 @@
 #include "overlay.h"
 
 
-void real_entry() {
-	DisableThreadLibraryCalls(GetModuleHandleA(NULL));
+void real_entry(HMODULE module) {
+	DisableThreadLibraryCalls(module);
 	
 	AllocConsole();
 	freopen_s((FILE**)stdin, "CONIN$", "r", stdin);
@@ -36,14 +36,14 @@ void real_entry() {
 		
 }
 
-BOOL WINAPI DllMain(
-	HINSTANCE instance,
-	DWORD reason,
-	LPVOID reserved
+BOOL WINAPI DllMain(HMODULE hModule,
+	DWORD  ul_reason_for_call,
+	LPVOID lpReserved
 ) {
 	
-	switch (reason) {
+	switch (ul_reason_for_call) {
 	case DLL_PROCESS_ATTACH:
-
+		real_entry(hModule);
+		break;
 	}
 }
