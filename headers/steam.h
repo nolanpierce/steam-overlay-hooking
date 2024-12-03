@@ -6,5 +6,5 @@
 
 namespace steam {
 	bool	prepare();
-	int		create_hook(void* dst, void* src, u64 original);
+	int		create_hook(void* dst, void* src, void* original);
 }

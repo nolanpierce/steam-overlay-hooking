@@ -45,7 +45,7 @@ HRESULT __stdcall overlay::present(IDXGISwapChain* swapchain, UINT sync, UINT fl
 	if (show_menu)
 		render_menu();
 
-	return o_present_function(swapchain, sync, flags);
+	return o_present_function(swapchain, sync, flags); //would be pretty good if we return spoofed this to inside the module
 }
 
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
@@ -57,3 +57,5 @@ LRESULT __stdcall overlay::wndproc_handler(HWND hwnd, UINT msg, WPARAM wparam, L
 
 	return CallWindowProcA(wndproc_original, hwnd, msg, wparam, lparam); //need to lazy import this too
 }
+
+
