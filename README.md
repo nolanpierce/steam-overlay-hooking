@@ -3,7 +3,7 @@ This project was aimed to render content using ImGui inside of a game without ha
 from this project we can fix it. The crazy part is you can do this almost completely the same for every streaming service that loads a dll inside of a game along with discords in game overlay. 
 
 ### Reason For Interest
-I have mainly stuck to the kernel and the more low level side of windows vulnerablity development and came across someone rendering a dll inside of the game to render visuals and execute milicous code inside protected games. So obviously this got me thinking. The person doing this definitly wasnt the brightest so it scratched the itch for me and I had to dive into it. Thankfully this post will alarm anticheat developers and the will do better checks for this.
+I have mainly stuck to the kernel and the more low level side of windows vulnerablity development and came across someone rendering a dll inside of the game to render visuals and execute milicous code inside protected games. So obviously this got me thinking. Thankfully this post will alarm anticheat developers and the will do better checks for this.
 
 ### Discovery
 I discovered how simple this is to do and how it is a copy pastabale solution so it needs to be stopped. You simply have to xref one string in a dissassmbler and u get two functions after f5ing to get spuedo code that are over powered you essentially are system calling their hooking functions so already this doesnt trip many flags the main flag being the return address add return spoofing into the mix there legit is probably no way of this being detected against modern anticheats like EAC, BE, etc...
